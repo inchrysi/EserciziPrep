@@ -28,7 +28,7 @@ def searchPattern1(filamento, pattern): #senza conversioni
     diff = lfil - lpatt
     
     if diff > 0:
-        for i in range(lfil):
+        for i in range(lfil - lpatt + 1): #
             n = i + lpatt
             if filamento[i : n] == pattern:
                 found+=1
