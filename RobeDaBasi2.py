@@ -27,12 +27,15 @@ def searchPattern1(filamento, pattern): #senza conversioni
     pos = []
     diff = lfil - lpatt
     
-    if diff > 0:
+    if diff >= 0:
         for i in range(lfil - lpatt + 1): #
             n = i + lpatt
             if filamento[i : n] == pattern:
                 found+=1
                 pos.append(i)
+    else:
+        print('Pattern più lungo di seq')
+        return
     
     if found != 0:
         print('Il pattern si ripete', found, 'volte')
