@@ -303,3 +303,52 @@ def readFASTA2(txtfile):
                 nomieseq[chiave]+= f
             
     return nomieseq
+
+# FASTA in testo con nome e poi sequenza ============================
+
+def FASTAintxt(FASTAfile):
+    
+    coso = readFASTA2(FASTAfile)
+    
+    with open("convertito.txt", "w") as f:
+        for x, y in coso.items():
+            f.write(x)
+            f.write(":")
+            f.write(y)
+            f.write("\n")
+    
+    return
+
+# GCcontent of a seq =========================
+def GCcontent(sequenza):
+    GC = 0
+    
+    for x in sequenza:
+        if x == "G" or x == "C":
+            GC+=1
+    
+    GCperc = GC * 100 / len(sequenza)
+    
+    return GCperc
+
+# FASTA GCcontent ===================================
+def FASTAGCcontent(FASTAfile):
+    conv = readFASTA2(FASTAfile)
+    GCqt = {}
+    
+    for x, y in conv.items():
+        GCqt[x] = GCcontent(y)
+    
+    return GCqt
+
+# most GCcontent ================================
+def mostGC(dic):
+    maggiore = 0
+    
+    for x, y in dic.items():
+        if y > maggiore:
+            maggiore = y
+    
+    print(x, maggiore)
+    
+    return 
