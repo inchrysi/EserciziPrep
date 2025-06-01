@@ -155,4 +155,5 @@ def palindromeSeq(filamento):
             print('not even close')
         
     
-    return 
+    return
+
