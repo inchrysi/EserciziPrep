@@ -41,15 +41,28 @@ class DNASequence:
         
         return GC
 
+class Experiment:
+    def __init__(self, name, Sample):
+        self.name = name
+        self.Sample = Sample
+    
+    def addSample(self, sample):
+        self.Sample.append(sample)
+    
+    def listSamples(self):
+        print(self.Sample)
+
+
 #DA RIVEDERE
 class Person:
     def __init__(self, name, age):
         self.name = name
         self.age = age
     
-    class Patient:
-        def __init__(self, diagnosis):
-            self.diagnosis = diagnosis
-        
-        def summary(self):
-            print(Person, '-', self.diagnosis)
+class Patient(Person):
+    def __init__(self, name, age, diagnosis):
+        super().__init__(name, age) #MA IN CHE SESNOSOS
+        self.diagnosis = diagnosis
+    
+    def summary(self):
+        print(self.name, self.age, '-', self.diagnosis)
